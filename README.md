@@ -1,0 +1,1 @@
+# -stroer-test-assignment
