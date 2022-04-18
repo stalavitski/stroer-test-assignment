@@ -1,0 +1,15 @@
+version: "3.3"
+
+services:
+  django:
+    build: .
+    command: bash -c "
+        cd /code
+        && ./manage.py migrate
+        && ./manage.py runserver 0.0.0.0:8000
+      "
+    container_name: stroer-test-assignment
+    volumes:
+      - .:/code
+    ports:
+      - "8000:8000"
