@@ -8,7 +8,8 @@ from rest_framework import permissions
 from auth.views import ConvertTokenView
 
 yasg_api_patterns = [
-    re_path(r'^auth/convert-token/?$', ConvertTokenView.as_view(), name='convert_token'),
+    re_path('auth/convert-token/?$', ConvertTokenView.as_view(), name='convert_token'),
+    path('users/', include('users.urls', namespace='users')),
 ]
 
 schema_view = get_schema_view(

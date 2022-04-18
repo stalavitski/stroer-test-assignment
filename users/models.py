@@ -11,7 +11,7 @@ class Administrator(AbstractUser):
 class User(models.Model):
     first_name = models.CharField(max_length=150)
     last_name = models.CharField(max_length=150)
-    created_by = models.OneToOneField(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
+    created_by = models.ForeignKey(settings.AUTH_USER_MODEL, on_delete=models.CASCADE)
     iban = models.CharField(
         max_length=32,
         validators=[
@@ -23,3 +23,6 @@ class User(models.Model):
             ),
         ]
     )
+
+    def __str__(self):
+        return '{} {}'.format(self.first_name, self.last_name)
